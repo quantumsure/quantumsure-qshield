@@ -1,0 +1,43 @@
+{
+  "name": "quantumsure-qshield",
+  "version": "0.1.0",
+  "description": "Client-side sensitive-data redaction for QuantumSure QShield (DPDP / AI pipeline safety).",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "redaction",
+    "pii",
+    "dpdp",
+    "qshield",
+    "quantumsure"
+  ],
+  "author": "QuantumSure",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@noble/post-quantum": "^0.7.1"
+  }
+}
