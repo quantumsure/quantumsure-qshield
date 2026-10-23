@@ -88,7 +88,7 @@ export async function qshieldAttest(
 
   const secretKey = fromB64(privateSignatureKeyB64);
   const msgBytes = new TextEncoder().encode(message);
-  const sigBytes = ml_dsa65.sign(secretKey, msgBytes);
+  const sigBytes = ml_dsa65.sign(msgBytes, secretKey);
 
   return {
     textSafe,
@@ -120,5 +120,5 @@ export function qshieldVerify(
   const publicKey = fromB64(publicSignatureKeyB64);
   const msgBytes = new TextEncoder().encode(message);
   const signature = fromB64(attestation.signature);
-  return ml_dsa65.verify(publicKey, msgBytes, signature);
+  return ml_dsa65.verify(signature, msgBytes, publicKey);
 }
